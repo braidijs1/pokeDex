@@ -1,0 +1,22 @@
+body{
+ align-content: center;
+ margin: auto;
+ width: 100rem;
+ border: 3px solid rgb(94, 92, 92);
+ box-shadow: crimson;
+ padding: 10px;
+ background-color: hsla(207, 100%, 84%, 0.945);
+}
+
+#pokemon-container{
+
+    margin: 3rem;
+}
+h1{
+
+color: rgb(250, 155, 11);
+align-content: center;
+margin: auto;
+width: 100rem;
+padding: 10px;
+}
