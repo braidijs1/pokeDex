@@ -27,7 +27,7 @@ const getPokemon =() =>{
 
 typeText.textContent="";
 
-fetch(`https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${searchInput.value}`) .then((res) => res.json())
+fetch(`https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${searchInput.value.toLowerCase()}`) .then((res) => res.json())
 .then((data) => {
   let danger = 0;
   pokemonData = data;
