@@ -1,0 +1,111 @@
+body {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    height: 100vh;
+    background-color: #f3f4f6;
+    font-family: 'Roboto', sans-serif;
+}
+
+#pokemon-container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 0.5s ease forwards;
+}
+p{
+
+    color: rgb(0, 26, 37);
+    font-weight:  bold;
+}
+
+h1 {
+    color: #fca311;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#search-input {
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 70%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+}
+
+#search-button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #fca311;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#search-button:hover {
+    background-color: #ffba5a;
+}
+
+#pokemon-container p {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #555;
+}
+
+#image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+#image:hover {
+    transform: scale(1.05);
+}
+
+#leftBtn,
+#rightBtn {
+    padding: 8px 16px;
+    margin: 0 5px;
+    background-color: #fca311;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#leftBtn:hover,
+#rightBtn:hover {
+    background-color: #ffba5a;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
