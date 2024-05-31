@@ -8,7 +8,7 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-#pokemon-container {
+#pokemon-container,#pokemon-container2,#pokemon-container3 {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -34,7 +34,7 @@ h1 {
     letter-spacing: 2px;
 }
 
-#search-input {
+#search-input,#search-input2 {
     padding: 10px;
     margin-bottom: 20px;
     width: 70%;
@@ -44,7 +44,7 @@ h1 {
     color: #333;
 }
 
-#search-button {
+#search-button,#search-button2 {
     padding: 10px 20px;
     border: none;
     background-color: #fca311;
@@ -57,24 +57,24 @@ h1 {
     letter-spacing: 1px;
 }
 
-#search-button:hover {
+#search-button:hover,#search-button2:hover {
     background-color: #ffba5a;
 }
 
-#pokemon-container p {
+#pokemon-container p,#pokemon-container2 p,#pokemon-container3 p {
     margin-bottom: 10px;
     font-size: 18px;
     color: #555;
 }
 
-#image {
+#image,#image2 {
     max-width: 100%;
     height: auto;
     margin-bottom: 20px;
     transition: transform 0.3s ease;
 }
 
-#image:hover {
+#image:hover,#image2:hover  {
     transform: scale(1.05);
 }
 
@@ -108,4 +108,8 @@ h1 {
         opacity: 1;
         transform: translateY(0);
     }
+}
+img{
+
+    display: block;
 }
