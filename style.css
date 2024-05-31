@@ -2,11 +2,12 @@ body {
     align-items: center;
     display: flex;
     justify-content: center;
-    flex-direction: column; /* Added this line to align items vertically */
+    flex-direction: column; /* Align items vertically */
     margin: 0;
-    height: 100vh;
+    padding: 20px; /* Added padding for better appearance on mobile */
     background-color: #f3f4f6;
     font-family: 'Roboto', sans-serif;
+    box-sizing: border-box; /* Ensure padding and border are included in element's total width and height */
 }
 
 #pokemon-container,
@@ -16,12 +17,14 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    max-width: 100vh;
+    width: 100%; /* Use full width on mobile */
+    max-width: 500px; /* Limit width on larger screens */
     text-align: center;
     position: relative;
     overflow: hidden;
     animation: fadeIn 0.5s ease forwards;
-    margin-bottom: 20px; /* Added margin to create space between divs */
+    margin-bottom: 20px; /* Space between divs */
+    box-sizing: border-box; /* Ensure padding and border are included in element's total width and height */
 }
 
 p {
@@ -42,11 +45,12 @@ h1 {
 #search-input2 {
     padding: 10px;
     margin-bottom: 20px;
-    width: 70%;
+    width: 100%; /* Use full width on mobile */
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
     color: #333;
+    box-sizing: border-box; /* Ensure padding and border are included in element's total width and height */
 }
 
 #search-button,
@@ -61,6 +65,8 @@ h1 {
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
+    width: 100%; /* Use full width on mobile */
+    box-sizing: border-box; /* Ensure padding and border are included in element's total width and height */
 }
 
 #search-button:hover,
@@ -123,4 +129,34 @@ h1 {
 
 img {
     display: block;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    #pokemon-container,
+    #pokemon-container2,
+    #pokemon-container3 {
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    #search-input,
+    #search-input2,
+    #search-button,
+    #search-button2 {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
 }
