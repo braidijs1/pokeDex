@@ -129,6 +129,10 @@ h1 {
 
 img {
     display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    
 }
 
 /* Media query for mobile devices */
@@ -158,5 +162,52 @@ img {
 
     h1 {
         font-size: 24px;
+    }
+}
+
+
+#imagesDiv,
+#imagesDiv2 {
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+#images,
+#images2 {
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 100%; /* Use full width on mobile */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    box-sizing: border-box; /* Ensure padding and border are included in element's total width and height */
+    animation: fadeIn 0.5s ease forwards;
+}
+
+#images:hover,
+#images2:hover {
+    border-color: #fca311;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media query for mobile devices */
+@media (max-width: 600px) {
+    #images,
+    #images2 {
+        padding: 8px;
+        font-size: 14px;
     }
 }

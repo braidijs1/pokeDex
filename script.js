@@ -38,6 +38,9 @@ const dangerInfo2 = document.getElementById("danger2");
 const typeText2 = document.getElementById("types2");
 const comparisonText = document.getElementById("comparisonText");
 const comparisonDiv = document.getElementById("pokemon-container3");
+const images = document.getElementById("images");
+const div1 = document.getElementById("div1");
+const div2 = document.getElementById("div2")
 
 let pokemonData = "";
 let danger1 = 0; // Declare danger1 at the top
@@ -63,14 +66,14 @@ const getPokemon = (pokemonNo) => {
         const { name: otherName } = type;
         const { back_default, back_shiny, front_default, front_shiny } = sprites;
         const pokemonImages = [back_default, back_shiny, front_default, front_shiny];
-
+  pokeapi(sprites,1,searchInput.value.toLowerCase());
         weightText.textContent = `Weight: ${weight}`;
         pokemonId.textContent = `ID: ${id}`;
         pokemonName.textContent = `Name: ${name.toUpperCase()}`;
         heightText.textContent = `Height: ${height}`;
         const typeNames = types.map(typeInfo => typeInfo.type.name).join(", ");
         typeText.textContent = `Types: ${typeNames.toUpperCase()}`;
-        image.src = pokemonImages[j];
+
 
         const [stat1, stat2, stat3, stat4, stat5, stat6] = stats;
         let count = 0;
@@ -111,14 +114,14 @@ const getPokemon = (pokemonNo) => {
         const { name: otherName } = type;
         const { back_default, back_shiny, front_default, front_shiny } = sprites;
         const pokemonImages = [back_default, back_shiny, front_default, front_shiny];
-
+        pokeapi(sprites,2,searchInput2.value.toLowerCase());
         weightText2.textContent = `Weight: ${weight}`;
         pokemonId2.textContent = `ID: ${id}`;
         pokemonName2.textContent = `Name: ${name.toUpperCase()}`;
         heightText2.textContent = `Height: ${height}`;
         const typeNames = types.map(typeInfo => typeInfo.type.name).join(", ");
         typeText2.textContent = `Types: ${typeNames.toUpperCase()}`;
-        image2.src = pokemonImages[j];
+       
 
         const [stat1, stat2, stat3, stat4, stat5, stat6] = stats;
         let count = 0;
@@ -162,3 +165,80 @@ searchButton.addEventListener("click", () => {
 searchButton2.addEventListener("click", () => {
   getPokemon(2);
 });
+
+function pokeapi(sprites,pokeNo,searchInput) {
+  fetch(`https://pokeapi.co/api/v2/pokemon/${searchInput}`)
+      .then((res) => res.json())
+      .then((data) => {
+        const pokemonData = data;
+          console.log(pokemonData);
+          
+        if(pokeNo === 1){
+         div1.style.display = null;
+          // Get keys that include an underscore
+          const keysArray = Object.keys(pokemonData.sprites).filter(key => key.includes('_'));
+          console.log(keysArray);
+          
+          // Populate the dropdown
+          const imagesSelect = document.getElementById('images');
+          imagesSelect.innerHTML= null;
+          keysArray.forEach(key => {
+              if (pokemonData.sprites[key]) { // Ensure there's a valid URL
+                key =  key.replace(/_/g," ").toUpperCase();
+                  imagesSelect.innerHTML += `
+                      <option value="${key}">${key}</option>
+                  `;
+              }
+          });
+
+          imagesSelect.addEventListener('change', function() {
+              const selectedKey = this.value.replace(/ /g,"_").toLowerCase();
+              const imageUrl = sprites[selectedKey];
+              const imagesDiv = document.getElementById('imagesDiv');
+              
+              if (imageUrl) {
+                  imagesDiv.innerHTML = `<img src="${imageUrl}" alt="${selectedKey}">`;
+              } else {
+                  imagesDiv.innerHTML = 'No image available';
+              }
+          });
+
+          // Trigger the change event to display the first image by default
+          imagesSelect.dispatchEvent(new Event('change'));
+        }
+        else{
+  // Get keys that include an underscore
+  const keysArray = Object.keys(pokemonData.sprites).filter(key => key.includes('_'));
+  console.log(keysArray);
+  div2.style.display = null;
+  // Populate the dropdown
+  const imagesSelect = document.getElementById('images2');
+  imagesSelect.innerHTML= null;
+  keysArray.forEach(key => {
+      if (pokemonData.sprites[key]) { // Ensure there's a valid URL
+         key =  key.replace(/_/g," ").toUpperCase();
+        imagesSelect.innerHTML += `
+              <option value="${key}">${key}</option>
+          `;
+      }
+  });
+
+  imagesSelect.addEventListener('change', function() {
+      const selectedKey = this.value.replace(/ /g,"_").toLowerCase();
+      const imageUrl = sprites[selectedKey];
+    
+      const imagesDiv = document.getElementById('imagesDiv2');
+      
+      if (imageUrl) {
+          imagesDiv.innerHTML = `<img src="${imageUrl}" alt="${selectedKey}">`;
+      } else {
+          imagesDiv.innerHTML = 'No image available';
+      }
+  });
+
+  // Trigger the change event to display the first image by default
+  imagesSelect.dispatchEvent(new Event('change'));
+}
+      });
+}
+

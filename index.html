@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0"/>
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
-
 </head>
 <body>
     <h1>PokINDEX</h1>
@@ -13,9 +12,11 @@
     <div id="pokemon-container">
 
         <input id="search-input" type="text" placeholder="Enter Pokemon Name or ID...">
-        <button id="search-button" onclick="getPokemon(1)">Search</button>
-        <img src="" href="" alt="" id="image">
-     
+        <button id="search-button" >Search</button>
+        <div id="div1" style="display:none">
+        <div id="imagesDiv"></div>
+        <select name="images" id="images" ></select>
+        </div>
         <p id="pokemon-name"></p>
         <p id="pokemon-id"></p>
         <p id="weight"></p>
@@ -30,12 +31,15 @@
         <p id="dangerLevel"></p>
         <p id="danger"></p>
     </div>
+
     <div id="pokemon-container2" style="display: none;" >
 
         <input id="search-input2" type="text" placeholder="Enter Pokemon Name or ID...">
-        <button id="search-button2" onclick="getPokemon(2)">Compare</button>
-        <img src="" href="" alt="" id="image2">
-
+        <button id="search-button2" >Compare</button>
+ <div id="div2" style="display:none">
+        <div id="imagesDiv2"></div>
+        <select name="images2" id="images2"></select>
+ </div>
         <p id="pokemon-name2"></p>
         <p id="pokemon-id2"></p>
         <p id="weight2"></p>
@@ -50,11 +54,9 @@
         <p id="dangerLevel2"></p>
         <p id="danger2"></p>
     </div>
+
     <div id="pokemon-container3" style="display: none;" >
-
-
         <p id="comparisonText"></p>
- 
     </div>
 
     <script src="script.js"></script>
