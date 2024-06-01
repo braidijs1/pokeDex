@@ -196,11 +196,16 @@ function pokeapi(sprites,pokeNo,searchInput) {
               const imageUrl = sprites[selectedKey];
               const imagesDiv = document.getElementById('imagesDiv');
               
-              if (imageUrl) {
-                  imagesDiv.innerHTML = `<img src="${imageUrl}" alt="${selectedKey}">`;
-              } else {
-                  imagesDiv.innerHTML = 'No image available';
-              }
+              if (!imagesDiv.innerHTML.includes("img")) {
+                imagesDiv.innerHTML = `<img src="${pokemonData.sprites.front_default}" alt="${selectedKey}">`;
+            }
+             else if(imageUrl){
+              imagesDiv.innerHTML = `<img src="${imageUrl}" alt="${selectedKey}">`;
+            }
+            else {
+                imagesDiv.innerHTML = 'No image available';
+            }
+          
           });
 
           // Trigger the change event to display the first image by default
@@ -228,12 +233,17 @@ function pokeapi(sprites,pokeNo,searchInput) {
       const imageUrl = sprites[selectedKey];
     
       const imagesDiv = document.getElementById('imagesDiv2');
-      
-      if (imageUrl) {
-          imagesDiv.innerHTML = `<img src="${imageUrl}" alt="${selectedKey}">`;
-      } else {
+     
+      if (!imagesDiv.innerHTML.includes("img")) {
+          imagesDiv.innerHTML = `<img src="${pokemonData.sprites.front_default}" alt="${selectedKey}">`;
+      }
+       else if(imageUrl){
+        imagesDiv.innerHTML = `<img src="${imageUrl}" alt="${selectedKey}">`;
+      }
+      else {
           imagesDiv.innerHTML = 'No image available';
       }
+    
   });
 
   // Trigger the change event to display the first image by default
